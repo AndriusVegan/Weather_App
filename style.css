@@ -1,7 +1,10 @@
-
+body{
+    max-width: 400px;
+}
 #city-input, #weather-output {
     max-width: 400px;
     margin: 0 auto;
+    position: center;
 }
   
 .banner {
@@ -10,14 +13,22 @@
 }
 .main-background-img{
     height: 100vh;
-    width: 100%;
-    background-size: cover;
+    width: 100vw;
+    background-image: url('weather.jpeg');
+    background-size: container;
     background-repeat: no-repeat;
+    background-position:center;
 }
 
 .card-body {
-    background-color:#fff;
-    background-image: url("https://i.pinimg.com/originals/ac/cd/22/accd2200173d77af65b0bcf49cf2ed7a.jpg");
+    background-color: #5dadec;
+
   /* background-size: cover; */
-  box-shadow: 0px 0px 20px 2px #000131;
+    /* box-shadow: 0px 0px 20px 2px #000131; */
+    /* background-image:url('https://i.pinimg.com/originals/ac/cd/22/accd2200173d77af65b0bcf49cf2ed7a.jpg'); */
+    background-size:contain;
+    background-repeat:no-repeat;
+    background-position:center;
+    /* height: 100vh;
+    width: 100vw; */
 }
