@@ -56,6 +56,8 @@ showWeatherData = (weatherData) => {
   document.getElementById("temp").innerText = weatherData.main.temp;
   document.getElementById("min-temp").innerText = weatherData.main.temp_min;
   document.getElementById("max-temp").innerText = weatherData.main.temp_max;
+  document.getElementById("wind").innerText = weatherData.wind.speed;
+  document.getElementById("humidity").innerText = weatherData.main.humidity;
   
 }
 
