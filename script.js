@@ -9,8 +9,9 @@
 let API_KEY = "a8e71c9932b20c4ceb0aed183e6a83bb";
 
 /**
- * Retrieve weather data from openweathermap
- * HINT: Use fetch()
+ * Retrieve weather data from openweathermap a8e71c9932b20c4ceb0aed183e6a83bb
+ * HINT: Use fetch()  my api key c5f9f64e7d5146be1fbac6db49012cc9
+ * a8e71c9932b20c4ceb0aed183e6a83bb
  * HINT: URL should look like this: 
  * https://api.openweathermap.org/data/2.5/weather?q=detroit&appid=a8e71c9932b20c4ceb0aed183e6a83bb&units=imperial
  */
@@ -19,8 +20,15 @@ getWeatherData = (city) => {
   //HINT: Use template literals to create a url with input and an API key
 
   //CODE GOES HERE
+  const FULL_URL = `${URL}?q=${city}&appid=${API_KEY}&units=metric`
+ 
+  const weatherPromise = fetch(FULL_URL);
+  return weatherPromise.then((response)=>{
+    return response.json();
+  })
 }
 
+// getWeatherData = ()
 /**
  * Retrieve city input and get the weather data
  * HINT: Use the promise returned from getWeatherData()
@@ -28,7 +36,13 @@ getWeatherData = (city) => {
 searchCity = () => {
   const city = document.getElementById('city-input').value;
   // CODE GOES HERE
-
+  getWeatherData(city)
+  .then((response)=>{
+    showWeatherData(response); // call function here
+    console.log(response); 
+  }).catch((error)=>{
+    console.log(error);  
+  })
 }
 
 /**
@@ -37,6 +51,11 @@ searchCity = () => {
  */
 showWeatherData = (weatherData) => {
   //CODE GOES HERE
+  document.getElementById("city-name").innerText = weatherData.name;
+  document.getElementById("weather-type").innerText = weatherData.weather[0].main;
+  document.getElementById("temp").innerText = weatherData.main.temp;
+  document.getElementById("min-temp").innerText = weatherData.main.temp_min;
+  document.getElementById("max-temp").innerText = weatherData.main.temp_max;
   
 }
 
